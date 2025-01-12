@@ -12,24 +12,27 @@ fatentry_t currentDirIndex = 0;
 dirblock_t * currentDirBlock_ptr = NULL;
 const char parse[2] = "/";
 
+// Initialise hex file on virtual disk
 void writeDisk(const char * filename) {
     FILE * dest = fopen(filename, "w");
-    if (fwrite(virtualDisk, sizeof(virtualDisk), 1, dest) < 0) {
+    if (fwrite(virtualDisk, sizeof(virtualDisk), 1, dest) != 1) {
         fprintf(stderr, "Error while writing virtual disk.\n");
     }
     fclose(dest);
 }
 
+// Read created hex file
 void readDisk(const char * filename) {
     FILE * dest = fopen(filename, "r");
-    if (fread(virtualDisk, sizeof(virtualDisk), 1, dest) < 0) {
+    if (fread(virtualDisk, sizeof(virtualDisk), 1, dest) != 1) {
         fprintf(stderr, "Error while reading virtual disk.\n");
     }
     fclose(dest);
 }
 
-void writeBlock() {
-
+// Write Block to Virtual Disk
+void writeBlock(const diskblock_t * block, const int block_address) {
+    memmove(virtualDisk[block_address].data, block->data, BLOCKSIZE);
 }
 
 void format() {
