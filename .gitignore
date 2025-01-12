@@ -1,7 +1,0 @@
-*.vcxproj
-*.exe
-*.sln
-
-CMakeCache.txt
-cmake-build-debug
-CMakeFiles
