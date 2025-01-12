@@ -71,7 +71,7 @@ typedef struct filedescriptor {
 
 /* Function prototypes */
 void format() ;
-void writedisk ( const char * filename );
+void writeDisk ( const char * filename );
 void printBlock(int blockIndex);
 void copyFAT();
 void printFAT();

@@ -1,22 +1,19 @@
-#include "filesys.h"
+#include "filesys.c"
 #include <stdio.h>
 #include <string.h>
 
-void FAT() {
+void FAT_Implementation() {
     printf("FAT block entry 0 starts here.\n");
     format();
 
     const char *filename = "Virtual Disk";
-    writedisk(filename);
+    writeDisk(filename);
     printFAT();
 
-    printf("Block 0 ends here.\n");
+    printf("Block 0 ends here.\n\n");
 }
 
 int main(int argc, char const *argv[]) {
-
-    /* insert function here */
-    FAT();
-
+    FAT_Implementation();
     return 0;
 }
