@@ -1,0 +1,3 @@
+C:/Users/cverm/CLionProjects/FAT/cmake-build-debug/CMakeFiles/FAT.dir
+C:/Users/cverm/CLionProjects/FAT/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/cverm/CLionProjects/FAT/cmake-build-debug/CMakeFiles/rebuild_cache.dir

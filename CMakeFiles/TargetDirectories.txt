@@ -1,0 +1,3 @@
+C:/Users/cverm/CLionProjects/FAT/CMakeFiles/FAT.dir
+C:/Users/cverm/CLionProjects/FAT/CMakeFiles/ALL_BUILD.dir
+C:/Users/cverm/CLionProjects/FAT/CMakeFiles/ZERO_CHECK.dir
