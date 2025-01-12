@@ -6,7 +6,7 @@ void FAT_Implementation() {
     printf("FAT block entry 0 starts here.\n");
     format();
 
-    const char *filename = "Virtual Disk";
+    const char *filename = "Virtual_Disk";
     writeDisk(filename);
     printFAT();
 
