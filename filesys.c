@@ -12,8 +12,12 @@ fatentry_t currentDirIndex = 0;
 dirblock_t * currentDirBlock_ptr = NULL;
 const char parse[2] = "/";
 
-void writeDisk() {
-
+void writeDisk(const char * filename) {
+    FILE * dest = fopen(filename, "w");
+    if (fwrite(virtualDisk, sizeof(virtualDisk), 1, dest) < 0) {
+        fprintf(stderr, "Error while writing virtual disk.\n");
+    }
+    fclose(dest);
 }
 
 void readDisk() {
