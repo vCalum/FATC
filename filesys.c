@@ -20,8 +20,12 @@ void writeDisk(const char * filename) {
     fclose(dest);
 }
 
-void readDisk() {
-
+void readDisk(const char * filename) {
+    FILE * dest = fopen(filename, "r");
+    if (fread(virtualDisk, sizeof(virtualDisk), 1, dest) < 0) {
+        fprintf(stderr, "Error while reading virtual disk.\n");
+    }
+    fclose(dest);
 }
 
 void writeBlock() {
