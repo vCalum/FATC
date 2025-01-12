@@ -95,3 +95,19 @@ void copyFAT() {
         }
     }
 }
+
+// Print block with occupied data
+void printBlock(const int blockIndex) {
+    printf("virtualDisk[%d] = %d\n", blockIndex, virtualDisk[blockIndex].data );
+}
+
+// Prints FAt entry where not used
+void printFAT() {
+    for (int i = 0; i < FATBLOCKSNEEDED; i++) {
+        for (int j = 0; j < FATENTRYCOUNT; j++) {
+            if (virtualDisk[i + 1].fat[j] != UNUSED) {
+                printf("virtualDisk[%d].fat = %d\n", i + 1, virtualDisk[i + 1].fat[j] );
+            }
+        }
+    }
+}
