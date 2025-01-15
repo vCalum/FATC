@@ -1,5 +1,6 @@
+// filesys.c
+
 #include <stdio.h>
-#include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
 #include "filesys.h"
@@ -110,4 +111,20 @@ void printFAT() {
             }
         }
     }
+}
+
+MyFILE * myfopen ( const char * filename, const char * mode ) {
+
+}
+
+void myfputc ( int b, MyFILE * stream ) {
+
+}
+
+void myfclose ( MyFILE * stream ) {
+
+}
+
+int myfgetc ( MyFILE * stream ) {
+
 }

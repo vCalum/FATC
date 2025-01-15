@@ -1,4 +1,6 @@
-#include "filesys.c"
+// shell.c
+
+#include "filesys.h"
 #include <stdio.h>
 #include <string.h>
 

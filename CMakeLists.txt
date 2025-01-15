@@ -1,30 +1,20 @@
-TARGET = prog
-LIBS = -lm
-CC = gcc
-CFLAGS = -g -Wall
+cmake_minimum_required(VERSION 3.10)
 
-.PHONY: default all clean
+# Project name
+project(FAT_Project)
 
-default: $(TARGET)
-all: default
+# Set C standard
+set(CMAKE_C_STANDARD 99)
 
-OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
-HEADERS = $(wildcard *.h)
+# Add source files
+set(SOURCE_FILES shell.c filesys.c filesys.h)
 
-%.o: %.c $(HEADERS)
-$(CC) $(CFLAGS) -c $< -o $@
+# Add executable target
+add_executable(prog ${SOURCE_FILES})
 
-.PRECIOUS: $(TARGET) $(OBJECTS)
-
-$(TARGET): $(OBJECTS)format-hex Virtual_Disk | more
-$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
-
-# Add a hexdump target
-hexdump: $(TARGET)
-# Run your program first (optional)
-./$(TARGET)
-# Generate a hexdump of Virtual_Disk
-format-hex Virtual_Disk > virtual_disk.txt
-
-clean:
--rm -f *.o $(TARGET) virtual_disk.txt
+# Add custom command for hexdump
+add_custom_target(hexdump
+        COMMAND prog && powershell -Command "Format-Hex Virtual_Disk > virtual_disk.txt"
+        DEPENDS prog
+        COMMENT "Running the program to create Virtual_Disk and generating hex dump"
+)
